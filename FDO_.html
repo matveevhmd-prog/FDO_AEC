@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Delivery Office В· Р РѕР·С€РёСЂРµРЅРёР№ РѕС„РµСЂ</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f5ef;
+  --bg-dark:#0c0b08;
+  --ink:#1a1814;
+  --ink-mid:#3a3730;
+  --muted:#857f72;
+  --rule:#d8d3c8;
+  --accent:#b5300a;
+  --gold:#8a7035;
+  --gold-light:#c4a055;
+  --cream:#ece7dc;
+  --green:#255235;
+  --red-tint:#fbf0ed;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Syne',sans-serif;line-height:1.7;overflow-x:hidden}
+.wrap{max-width:860px;margin:0 auto;padding:0 2.5rem}
+.wide{max-width:1060px;margin:0 auto;padding:0 2.5rem}
+.lbl{font-size:.58rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:1.75rem;display:flex;align-items:center;gap:1rem}
+.lbl::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+/* COVER */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:3rem 0;border-bottom:2px solid var(--ink);background:var(--bg-dark);color:#e8e2d8;position:relative;overflow:hidden}
+.cover::before{content:'FDO';position:absolute;right:-2rem;bottom:-4rem;font-family:'Cormorant Garamond',serif;font-size:28rem;font-weight:700;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;letter-spacing:-.05em}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid #252318}
+.cover-brand{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#f0ebe0}
+.cover-brand-sub{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#555048;margin-top:.2rem}
+.cover-doc-type{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);border:1px solid #2a2820;padding:.3rem .8rem}
+.cover-mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4rem 0}
+.cover-kicker{font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:.75rem;animation:fadeUp .5s ease .1s both}
+.cover-kicker::before{content:'';width:2rem;height:2px;background:var(--accent);flex-shrink:0}
+.cover-h{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.2rem);line-height:1.02;font-weight:700;letter-spacing:-.015em;color:#f0ebe0;margin-bottom:2rem;max-width:800px;animation:fadeUp .6s ease .2s both}
+.cover-h em{font-style:italic;color:var(--accent)}
+
+/* Contour chain вЂ” cover version */
+.cover-chain{display:flex;align-items:center;gap:0;margin-bottom:2.5rem;flex-wrap:wrap;gap:.25rem;animation:fadeUp .55s ease .3s both}
+.cc-node{padding:.5rem .9rem;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid #2a2820;color:#555048;white-space:nowrap}
+.cc-node.hot{border-color:var(--accent);color:var(--accent);background:rgba(181,48,10,.08)}
+.cc-node.target{border-color:var(--gold-light);color:var(--gold-light);background:rgba(196,160,85,.08)}
+.cc-arr{color:#252318;font-size:1rem;padding:0 .2rem}
+
+.cover-deck{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding-top:2rem;border-top:1px solid #252318;animation:fadeUp .5s ease .4s both}
+.cover-lead{font-size:.95rem;line-height:1.82;color:#9a9080}
+.cover-lead strong{color:#d4cec4;font-weight:600}
+.cover-verdict{padding:1.75rem;border:1px solid #252318;background:#090806}
+.cv-lbl{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.75rem}
+.cv-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.5;color:#e0dbd4}
+.cv-text em{font-style:italic;color:var(--gold-light)}
+.cover-bot{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid #252318}
+.cover-author,.cover-contact{font-size:.75rem;color:#555048}
+.cover-contact a{color:#6a6258;text-decoration:none}
+
+/* SECTIONS */
+.section{padding:5rem 0;border-bottom:1px solid var(--rule)}
+.section.dark{background:var(--bg-dark);color:#e8e2d8}
+.section.tinted{background:var(--cream)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.8vw,2.9rem);line-height:1.1;margin-bottom:.75rem}
+.sec-h em{font-style:italic;color:var(--accent)}
+.sec-h.light{color:#f0ebe0}
+.sec-h.light em{color:var(--gold-light)}
+.sec-sub{font-size:.9rem;color:var(--muted);max-width:560px;line-height:1.75;margin-bottom:2.5rem}
+.sec-sub.light{color:#9a9080}
+
+/* PROBLEM */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);margin-bottom:2rem}
+.prob-col{padding:2rem;border-right:1px solid var(--rule)}
+.prob-col:last-child{border-right:none}
+.prob-col-lbl{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
+.prob-items{list-style:none}
+.prob-item{padding:.8rem 0;border-bottom:1px solid var(--rule);font-size:.85rem;color:var(--ink-mid);line-height:1.6;display:flex;gap:.75rem;align-items:flex-start}
+.prob-item:last-child{border-bottom:none}
+.prob-item::before{content:'вЂ”';color:var(--accent);flex-shrink:0;font-weight:700;margin-top:1px}
+.prob-item strong{color:var(--ink);font-weight:600}
+
+/* Three-line positioning */
+.three-line{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);margin-bottom:2rem}
+.tl{padding:1.5rem;border-right:1px solid var(--rule)}
+.tl:last-child{border-right:none}
+.tl-who{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.tl-what{font-size:.9rem;color:var(--ink-mid);line-height:1.45}
+.tl.highlighted{background:var(--bg)}
+.tl.highlighted .tl-who{color:var(--accent)}
+.tl.highlighted .tl-what{color:var(--ink);font-weight:600}
+
+.prob-conclusion{padding:2rem 2.5rem;background:var(--bg-dark);border-left:3px solid var(--accent)}
+.pc-lbl{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.75rem}
+.pc-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.5;color:#e0dbd4}
+.pc-text em{font-style:italic;color:var(--gold-light)}
+
+/* DEFINITION */
+.def-block{padding:2.5rem;border:1px solid var(--rule);background:var(--cream);margin-bottom:2rem}
+.def-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:.75rem;line-height:1.3}
+.def-body{font-size:.92rem;color:var(--ink-mid);line-height:1.8}
+.def-body strong{color:var(--ink);font-weight:600}
+
+/* KEY PROPERTY */
+.key-prop{padding:2rem 2.5rem;background:var(--bg-dark);border-left:3px solid var(--accent);margin-top:2rem}
+.kp-lbl{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.75rem}
+.kp-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.55;color:#e0dbd4}
+.kp-text em{font-style:italic;color:var(--gold-light)}
+
+/* TWO SIDES */
+.two-sides{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule)}
+.ts{padding:2rem 2.25rem;border-right:1px solid var(--rule)}
+.ts:last-child{border-right:none}
+.ts-tag{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem}
+.ts-tag::before{content:'';width:1.2rem;height:2px;display:block;flex-shrink:0}
+.ts.int .ts-tag{color:#3a7a5a}
+.ts.int .ts-tag::before{background:#3a7a5a}
+.ts.ext .ts-tag{color:var(--accent)}
+.ts.ext .ts-tag::before{background:var(--accent)}
+.ts-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:1rem;line-height:1.2}
+.ts.int .ts-title{color:#2d5a4a}
+.ts.ext .ts-title{color:var(--accent)}
+.ts-items{list-style:none}
+.ts-item{padding:.8rem 0;border-bottom:1px solid var(--rule);display:flex;gap:.85rem;align-items:flex-start}
+.ts-item:last-child{border-bottom:none}
+.ts-item-icon{width:26px;height:26px;border-radius:50%;border:1px solid;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.ts.int .ts-item-icon{border-color:#3a7a5a;color:#3a7a5a}
+.ts.ext .ts-item-icon{border-color:var(--accent);color:var(--accent)}
+.ts-item-title{font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;line-height:1.3}
+.ts-item-desc{font-size:.77rem;color:var(--muted);line-height:1.6}
+
+/* Scope case */
+.scope-case{margin-top:2.5rem;padding:2rem 2.5rem;border:1px solid var(--rule);background:var(--red-tint);border-left:3px solid var(--accent)}
+.sc-lbl{font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem}
+.sc-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:center;margin-bottom:1.25rem}
+.sc-box{padding:1rem 1.25rem;border:1px solid var(--rule);background:var(--bg)}
+.sc-box-lbl{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.sc-box-text{font-size:.82rem;color:var(--ink-mid);line-height:1.55}
+.sc-box-text strong{color:var(--ink);font-weight:600}
+.sc-arr{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);font-style:italic;text-align:center}
+.sc-resolution{font-size:.88rem;color:var(--ink-mid);line-height:1.7}
+.sc-resolution em{font-style:italic;color:var(--accent)}
+.sc-resolution strong{color:var(--ink);font-weight:600}
+
+/* MANAGEMENT CYCLE */
+.cycle{border:1px solid var(--rule);margin-bottom:2rem}
+.cycle-head{padding:1.1rem 1.75rem;background:var(--ink);color:#f0ebe0;display:flex;justify-content:space-between;align-items:center}
+.cycle-head-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700}
+.cycle-head-badge{font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light)}
+.cycle-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.cs{padding:1.25rem;border-right:1px solid var(--rule);text-align:center}
+.cs:last-child{border-right:none}
+.cs-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--rule);line-height:1;margin-bottom:.4rem}
+.cs-title{font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:.25rem;line-height:1.3}
+.cs-body{font-size:.7rem;color:var(--muted);line-height:1.5}
+.cycle-note{padding:1rem 1.75rem;border-top:1px solid var(--rule);font-size:.75rem;color:var(--muted);font-style:italic}
+
+/* BEP */
+.bep-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #232118;margin-bottom:2rem}
+.bi{padding:1.5rem;border-right:1px solid #232118}
+.bi:last-child{border-right:none}
+.bi-lbl{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#555048;margin-bottom:.4rem}
+.bi-val{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--gold-light);line-height:1}
+.bi-sub{font-size:.7rem;color:#555048;margin-top:.35rem;line-height:1.4}
+.bep-scenarios{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #232118;margin-bottom:1.75rem}
+.bs{padding:2rem 2.25rem;border-right:1px solid #232118}
+.bs:last-child{border-right:none}
+.bs.g{border-top:3px solid var(--gold-light)}
+.bs.b{border-top:3px solid var(--accent)}
+.bs-tag{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.65rem}
+.bs.g .bs-tag{color:var(--gold-light)}
+.bs.b .bs-tag{color:var(--accent)}
+.bs-pct{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;line-height:1;margin-bottom:.4rem}
+.bs.g .bs-pct{color:var(--gold-light)}
+.bs.b .bs-pct{color:var(--accent)}
+.bs-rev{font-size:.85rem;color:#9a9080;margin-bottom:.9rem;line-height:1.4}
+.bs-rev strong{color:#d4cec4;font-size:1rem}
+.bs-rows{border-top:1px solid #232118;padding-top:.85rem}
+.bs-row{display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid #181610;font-size:.77rem}
+.bs-row:last-child{border-bottom:none}
+.bs-row-k{color:#6a6258}
+.bs-row-v{color:#c4bdb0;font-weight:500}
+.bep-bridge{padding:2rem 2.5rem;border:1px solid #232118;background:#090806}
+.bb-lbl{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.9rem}
+.bb-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.55;color:#e0dbd4;margin-bottom:.9rem}
+.bb-text em{font-style:italic;color:var(--gold-light)}
+.bb-sub{font-size:.78rem;color:#6a6258;line-height:1.7}
+.bb-sub strong{color:#9a9080}
+
+/* FDR MEETING */
+.fdr-block{border:1px solid var(--rule);margin-bottom:2rem}
+.fdr-head{padding:1.25rem 1.75rem;background:var(--ink);color:#f0ebe0;display:flex;justify-content:space-between;align-items:center}
+.fdr-head-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700}
+.fdr-head-badge{font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light)}
+.fdr-body{padding:1.75rem}
+.fdr-body-text{font-size:.88rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1.25rem}
+.fdr-body-text strong{color:var(--ink);font-weight:600}
+.fdr-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule)}
+.fdr-step{padding:1.1rem;border-right:1px solid var(--rule);text-align:center}
+.fdr-step:last-child{border-right:none}
+.fdr-step-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--rule);line-height:1;margin-bottom:.5rem}
+.fdr-step-tool{font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.fdr-step-text{font-size:.75rem;color:var(--muted);line-height:1.5}
+
+/* RHYTHM TABLE */
+.rt{width:100%;border-collapse:collapse;border:1px solid var(--rule)}
+.rt thead tr{background:var(--ink);color:var(--bg)}
+.rt th{padding:.85rem 1.2rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-align:left}
+.rt th:first-child{width:85px;color:var(--muted)}
+.rt th:nth-child(2){color:#e0dbd4}
+.rt th:nth-child(3){color:#666}
+.rt th:last-child{color:var(--gold-light)}
+.rt td{padding:.85rem 1.2rem;font-size:.8rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55}
+.rt tr:last-child td{border-bottom:none}
+.rt tr:hover td{background:var(--cream)}
+.fb{display:inline-block;padding:.18rem .5rem;font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid;white-space:nowrap}
+.fd{color:var(--accent);border-color:var(--accent)}
+.fw{color:var(--gold);border-color:var(--gold)}
+.fm{color:var(--green);border-color:var(--green)}
+.fe{color:#6a6aaa;border-color:#6a6aaa}
+.who{font-size:.72rem;color:var(--muted)}
+.res{font-size:.78rem;color:var(--green);font-weight:600}
+
+/* ETC quality block */
+.etc-quality{padding:1.75rem 2rem;border:1px solid var(--rule);background:var(--cream);margin-top:2rem}
+.eq-lbl{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem}
+.eq-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);line-height:1.5}
+.eq-sub{font-size:.8rem;color:var(--muted);margin-top:.6rem;line-height:1.65}
+
+/* LIMITATIONS */
+.limits-section{padding:4rem 0;border-bottom:1px solid var(--rule)}
+.limits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule)}
+.lim-col{padding:2rem}
+.lim-col:first-child{border-right:1px solid var(--rule)}
+.lim-col-lbl{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem}
+.lim-col:first-child .lim-col-lbl{color:var(--green)}
+.lim-col:last-child .lim-col-lbl{color:var(--accent)}
+.lim-items{list-style:none}
+.lim-item{padding:.6rem 0;border-bottom:1px solid var(--rule);font-size:.82rem;color:var(--ink-mid);line-height:1.55;display:flex;gap:.75rem}
+.lim-item:last-child{border-bottom:none}
+.lim-col:first-child .lim-item::before{content:'вњ“';color:var(--green);font-weight:700;flex-shrink:0}
+.lim-col:last-child .lim-item::before{content:'Г—';color:var(--accent);font-weight:700;flex-shrink:0}
+
+/* TEAM */
+.team-cards{display:flex;flex-direction:column;gap:0;border:1px solid var(--rule)}
+.tm{padding:1.4rem 1.75rem;border-bottom:1px solid var(--rule);transition:background .15s}
+.tm:last-child{border-bottom:none}
+.tm:hover{background:var(--cream)}
+.tm-role{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.tm-name{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.3rem}
+.tm-body{font-size:.76rem;color:var(--muted);line-height:1.6}
+
+/* PAYMENT MODELS */
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #252318}
+.model{padding:2rem;border-right:1px solid #252318;transition:background .15s}
+.model:last-child{border-right:none}
+.model:hover{background:#0c0b08}
+.model.featured{border-top:3px solid var(--gold-light)}
+.model-tag{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.6rem}
+.model-tag.f{color:var(--gold-light)}
+.model-tag.p{color:var(--accent)}
+.model-tag.s{color:#6a9a7a}
+.model-title{font-size:.9rem;font-weight:600;color:#d4cec4;margin-bottom:.6rem;line-height:1.3}
+.model-body{font-size:.77rem;color:#6a6258;line-height:1.65;margin-bottom:.9rem}
+.model-note{font-size:.7rem;font-style:italic;color:#555048;line-height:1.5}
+
+/* ANCHOR TABLE */
+.anchor{border:1px solid #252318}
+.a-head{display:grid;grid-template-columns:1fr 1fr;background:#090806;border-bottom:1px solid #232118}
+.a-head-c{padding:.8rem 1.4rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.a-head-c:first-child{color:#3a3828;border-right:1px solid #252318}
+.a-head-c:last-child{color:var(--gold-light)}
+.a-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #232118}
+.a-row:last-child{border-bottom:none}
+.a-cell{padding:1rem 1.4rem;font-size:.8rem}
+.a-cell:first-child{color:#6a6258;border-right:1px solid #252318}
+.a-cell:last-child{color:#c4bdb0}
+.a-row.hi .a-cell{color:#e0dbd4;font-weight:600}
+
+/* ROLLOUT */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule)}
+.stage{padding:2rem;border-right:1px solid var(--rule)}
+.stage:last-child{border-right:none}
+.stage-n{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;color:var(--rule);line-height:1;margin-bottom:.65rem}
+.stage-tag{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.stage-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;line-height:1.3}
+.stage-body{font-size:.77rem;color:var(--muted);line-height:1.65}
+.stage-ok{margin-top:.85rem;font-size:.7rem;font-weight:700;color:var(--green);display:flex;align-items:center;gap:.35rem}
+.stage-ok::before{content:'вњ“';flex-shrink:0}
+
+/* CTA */
+.cta-section{padding:5rem 0}
+.cta-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.cta-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.08;margin-bottom:1rem}
+.cta-h em{font-style:italic;color:var(--accent)}
+.cta-body{font-size:.88rem;color:var(--muted);line-height:1.82;margin-bottom:1.1rem}
+.stress-box{border:1px solid var(--rule)}
+.sb-head{padding:1.2rem 1.75rem;background:var(--ink);color:var(--bg);border-bottom:1px solid var(--rule)}
+.sb-head-lbl{font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.3rem}
+.sb-head-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#f0ebe0;line-height:1.35}
+.sb-body{padding:1.75rem;background:var(--cream)}
+.sb-intro{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem}
+.sb-list{list-style:none;margin-bottom:1.5rem}
+.sb-list li{font-size:.8rem;color:var(--ink);padding:.4rem 0;border-bottom:1px solid var(--rule);display:flex;gap:.55rem;line-height:1.45}
+.sb-list li::before{content:'вњ“';color:var(--green);font-weight:700;flex-shrink:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--accent);color:#fff;text-decoration:none;padding:1rem 1.5rem;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .2s;width:100%}
+.btn:hover{background:#921f06}
+.sb-contacts{padding:.85rem 1.75rem 1.35rem;display:flex;flex-direction:column;gap:.3rem;border-top:1px solid var(--rule)}
+.sb-contacts a{font-size:.76rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.sb-contacts a:hover{color:var(--accent)}
+
+/* FOOTER */
+footer{border-top:2px solid var(--ink);padding:1.5rem 0}
+.fi{max-width:1060px;margin:0 auto;padding:0 2.5rem;display:flex;justify-content:space-between;align-items:center}
+.fn-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700}
+.fn-sub{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.15rem}
+.fl{display:flex;gap:2rem}
+.fl a{font-size:.7rem;color:var(--muted);text-decoration:none}
+.fl a:hover{color:var(--accent)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:780px){
+  html{font-size:14px}
+  .wrap,.wide{padding:0 1.25rem}
+  .cover-top,.cover-bot,.fi{flex-direction:column;gap:.75rem}
+  .cover-deck,.prob-grid,.two-sides,.bep-scenarios,.models,.cta-grid,.sc-flow,.fdr-flow,.three-line{grid-template-columns:1fr}
+  .bep-inputs,.stages,.cycle-steps{grid-template-columns:1fr}
+  .ts,.stage,.model,.bi,.bs,.tl,.cs{border-right:none;border-bottom:1px solid var(--rule)}
+  .ts:last-child,.stage:last-child,.model:last-child,.bi:last-child,.bs:last-child,.tl:last-child,.cs:last-child{border-bottom:none}
+  .prob-col,.lim-col{border-right:none;border-bottom:1px solid var(--rule)}
+  .prob-col:last-child,.lim-col:last-child{border-bottom:none}
+  .a-head,.a-row{grid-template-columns:1fr}
+  .a-head-c:first-child,.a-cell:first-child{border-right:none;border-bottom:1px solid #252318}
+  .sc-arr{text-align:center}
+  .fdr-step{border-right:none;border-bottom:1px solid var(--rule)}
+  .fdr-step:last-child{border-bottom:none}
+  .limits-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="wide">
+    <div class="cover-top">
+      <div>
+        <div class="cover-brand">Financial Delivery Office</div>
+        <div class="cover-brand-sub">РђРЅРґСЂС–Р№ РњР°С‚РІС”С”РІ В· Р—Р°СЃРЅРѕРІРЅРёРє С– РєРµСЂС–РІРЅРёР№ РїР°СЂС‚РЅРµСЂ</div>
+      </div>
+      <div class="cover-doc-type">Р РѕР·С€РёСЂРµРЅРёР№ РѕС„РµСЂ В· PDF / РљРџ</div>
+    </div>
+
+    <div class="cover-mid">
+      <div class="cover-kicker">Р”Р»СЏ РІР»Р°СЃРЅРёРєС–РІ РїСЂРѕРµРєС‚РЅРёС… РєРѕРјРїР°РЅС–Р№ вЂ” Р°СЂС…С–С‚РµРєС‚СѓСЂР°, РїСЂРѕРµРєС‚СѓРІР°РЅРЅСЏ, С–РЅР¶РёРЅС–СЂРёРЅРі</div>
+      <h1 class="cover-h">
+        Р¤С–РЅР°РЅСЃРѕРІРёР№ СЂРµР·СѓР»СЊС‚Р°С‚<br>
+        РїСЂРѕРµРєС‚Сѓ РІС–РґРѕРјРёР№<br>
+        <span style="text-decoration:line-through;text-decoration-color:var(--accent);text-decoration-thickness:3px;color:#555048">РїС–СЃР»СЏ Р·Р°РІРµСЂС€РµРЅРЅСЏ</span><br>
+        вЂ” Р°Р±Рѕ <em>Сѓ РїСЂРѕС†РµСЃС–.</em>
+      </h1>
+
+      <div class="cover-chain">
+        <div class="cc-node">WBS</div>
+        <div class="cc-arr">в†’</div>
+        <div class="cc-node hot">Fact</div>
+        <div class="cc-arr">в†’</div>
+        <div class="cc-node hot">ETC</div>
+        <div class="cc-arr">в†’</div>
+        <div class="cc-node">Acts</div>
+        <div class="cc-arr">в†’</div>
+        <div class="cc-node">Cash</div>
+        <div class="cc-arr">в†’</div>
+        <div class="cc-node target">Profit</div>
+      </div>
+
+      <div class="cover-deck">
+        <div class="cover-lead">
+          РЈ РїСЂРѕРµРєС‚РЅРѕРјСѓ Р±С–Р·РЅРµСЃС– РІС–РґСЃСѓС‚РЅС–Р№ Р·Р°РјРєРЅСѓС‚РёР№ РєРѕРЅС‚СѓСЂ РјС–Р¶ РІРёРєРѕРЅР°РЅРЅСЏРј СЂРѕР±С–С‚, РїСЂРѕРіРЅРѕР·РѕРј С‚СЂСѓРґРѕРІРёС‚СЂР°С‚, Р°РєС‚СѓРІР°РЅРЅСЏРј С– РіСЂРѕС€РѕРІРёРј РїРѕС‚РѕРєРѕРј. Р’ СЂРµР·СѓР»СЊС‚Р°С‚С– <strong>С„С–РЅР°РЅСЃРѕРІРёР№ СЂРµР·СѓР»СЊС‚Р°С‚ РїСЂРѕРµРєС‚Сѓ СЃС‚Р°С” РІС–РґРѕРјРёРј РїС–СЃР»СЏ Р№РѕРіРѕ Р·Р°РІРµСЂС€РµРЅРЅСЏ.</strong> РњР°СЂР¶Р° РЅРµ СѓРїСЂР°РІР»СЏС”С‚СЊСЃСЏ. Cash flow РЅРѕСЃРёС‚СЊ СЂРµР°РєС‚РёРІРЅРёР№ С…Р°СЂР°РєС‚РµСЂ.
+        </div>
+        <div class="cover-verdict">
+          <div class="cv-lbl">РљР»СЋС‡РѕРІР° РІР»Р°СЃС‚РёРІС–СЃС‚СЊ FDO</div>
+          <div class="cv-text">
+            РќРµРјРѕР¶Р»РёРІРѕ РѕС‚СЂРёРјР°С‚Рё С„С–РЅР°РЅСЃРѕРІРёР№ СЂРµР·СѓР»СЊС‚Р°С‚, РЅРµ РїСЂРѕР№С€РѕРІС€Рё <em>РєРѕРЅС‚СЂРѕР»СЊРѕРІР°РЅС– СЃС‚Р°РЅРё СЃРёСЃС‚РµРјРё.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-bot">
+      <div class="cover-author">matveev.ceo.dp@gmail.com</div>
+      <div class="cover-contact"><a href="tel:+380665595458">+38 066 559 5458</a></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="wide">
+    <div class="lbl">РџСЂРѕР±Р»РµРјР° СЏРє С„Р°РєС‚, РЅРµ РґСѓРјРєР°</div>
+    <h2 class="sec-h">РњР°СЂР¶Р° РІРёС‚С–РєР°С” <em>Р· РґРІРѕС… Р±РѕРєС–РІ</em> вЂ” С– Р¶РѕРґРЅР° С–СЃРЅСѓСЋС‡Р° СЃРёСЃС‚РµРјР° С†Рµ РЅРµ Р·Р°РєСЂРёРІР°С”.</h2>
+    <p class="sec-sub">Р‘СѓС…РіР°Р»С‚РµСЂС–СЏ С– PM-С–РЅСЃС‚СЂСѓРјРµРЅС‚Рё РІРёСЂС–С€СѓСЋС‚СЊ СЂС–Р·РЅС– Р·Р°РґР°С‡С–. РњС–Р¶ РІРёРєРѕРЅР°РЅРЅСЏРј С– РіСЂРѕС€РёРјР° вЂ” РїРѕСЂРѕР¶РЅС–Р№ РєРѕРЅС‚СѓСЂ.</p>
+
+    <!-- Three-line positioning -->
+    <div class="three-line">
+      <div class="tl">
+        <div class="tl-who">Р‘СѓС…РіР°Р»С‚РµСЂС–СЏ</div>
+        <div class="tl-what">С„С–РєСЃСѓС” РјРёРЅСѓР»Рµ. Р РµР·СѓР»СЊС‚Р°С‚ СЃС‚Р°С” РІС–РґРѕРјРёРј РїС–СЃР»СЏ Р·Р°РєСЂРёС‚С‚СЏ.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-who">PM-СЃРёСЃС‚РµРјРё</div>
+        <div class="tl-what">С„С–РєСЃСѓСЋС‚СЊ Р·Р°РґР°С‡С–. Р¤С–РЅР°РЅСЃРѕРІРёР№ РєРѕРЅС‚СѓСЂ вЂ” РЅРµ С—С…РЅСЏ Р·РѕРЅР°.</div>
+      </div>
+      <div class="tl highlighted">
+        <div class="tl-who">FDO</div>
+        <div class="tl-what">СѓРїСЂР°РІР»СЏС” С„С–РЅР°РЅСЃРѕРІРёРј СЂРµР·СѓР»СЊС‚Р°С‚РѕРј Сѓ РїСЂРѕС†РµСЃС– вЂ” Р·СЃРµСЂРµРґРёРЅРё С– Р·Р·РѕРІРЅС–.</div>
+      </div>
+    </div>
+
+    <div class="prob-grid">
+      <div class="prob-col">
+        <div class="prob-col-lbl">Р’РЅСѓС‚СЂС–С€РЅС– РІС‚СЂР°С‚Рё В· РєРѕРјР°РЅРґР°</div>
+        <ul class="prob-items">
+          <li class="prob-item">Р‘СЋРґР¶РµС‚ РЅР° СЃС‚Р°СЂС‚С– РјР°Р№Р¶Рµ РЅС–РєРѕР»Рё РЅРµ Р·Р±С–РіР°С”С‚СЊСЃСЏ Р· С„С–РЅР°Р»СЊРЅРёРј вЂ” РЅС–С…С‚Рѕ РЅРµ СЃРёРіРЅР°Р»С–Р·СѓС” РІС‡Р°СЃРЅРѕ</li>
+          <li class="prob-item"><strong>РћР±Р»С–Рє РјРµС‚РѕРґРѕРј РЅР°СЂР°С…СѓРІР°РЅРЅСЏ РїС–РґРјС–РЅСЏС”С‚СЊСЃСЏ РєР°СЃРѕРІРёРј:</strong> РІРё РґСѓРјР°С”С‚Рµ С‰Рѕ Р·Р°СЂРѕР±РёР»Рё, Р° РіСЂРѕС€РµР№ РЅРµРјР°С”</li>
+          <li class="prob-item">Р’Рё РЅРµ Р·РЅР°С”С‚Рµ вЂ” <strong>РїРµСЂРµР°РІР°РЅСЃРѕРІР°РЅС– РІРё С‡Рё РЅРµРґРѕС„С–РЅР°РЅСЃРѕРІР°РЅС–.</strong> РћСЃРІРѕС”РЅРёР№ С– РѕРїР»Р°С‡РµРЅРёР№ РѕР±СЃСЏРі РїРѕСЃС‚С–Р№РЅРѕ РЅРµ Р·Р±С–РіР°СЋС‚СЊСЃСЏ</li>
+          <li class="prob-item">Р’Рё РЅРµ Р·РЅР°С”С‚Рµ СЃРєС–Р»СЊРєРё РїРѕС‚СЂС–Р±РЅРѕ С‰РѕР± Р·Р°РІРµСЂС€РёС‚Рё РїСЂРѕРµРєС‚ С– <strong>СЃРєС–Р»СЊРєРё Р·Р°Р»РёС€РёР»РѕСЃСЊ Сѓ РєРѕРЅС‚СЂР°РєС‚С–</strong></li>
+        </ul>
+      </div>
+      <div class="prob-col">
+        <div class="prob-col-lbl">Р—РѕРІРЅС–С€РЅС– РІС‚СЂР°С‚Рё В· Р·Р°РјРѕРІРЅРёРє</div>
+        <ul class="prob-items">
+          <li class="prob-item">Р—Р°РјРѕРІРЅРёРє Р·РјС–РЅСЋС” РўР— вЂ” РѕР±СЃСЏРі СЂРѕСЃС‚Рµ, РІР°СЂС‚С–СЃС‚СЊ Сѓ РєРѕРЅС‚СЂР°РєС‚С– РЅРµ Р·РјС–РЅСЋС”С‚СЊСЃСЏ</li>
+          <li class="prob-item">Р›С–РјС–С‚ РїСЂР°РІРѕРє РІРёС‡РµСЂРїР°РЅРѕ вЂ” РІР»Р°СЃРЅРёРє РјРѕРІС‡РёС‚СЊ: <strong>Р±РѕС—С‚СЊСЃСЏ РІРёСЃС‚Р°РІРёС‚Рё СЂР°С…СѓРЅРѕРє С‰РѕР± РЅРµ РІС‚СЂР°С‚РёС‚Рё РєР»С–С”РЅС‚Р°</strong></li>
+          <li class="prob-item">Р”РѕРґР°С‚РєРѕРІС– СЂРѕР±РѕС‚Рё РІРёРєРѕРЅСѓСЋС‚СЊСЃСЏ Р±РµР· РґРѕРї. СѓРіРѕРґРё вЂ” РјР°СЂР¶Р° Р·РЅРёРєР°С” РјРѕРІС‡РєРё</li>
+          <li class="prob-item">Cash flow РЅРѕСЃРёС‚СЊ СЂРµР°РєС‚РёРІРЅРёР№ С…Р°СЂР°РєС‚РµСЂ вЂ” СЂС–С€РµРЅРЅСЏ Р·Р°РІР¶РґРё Р·Р°РїС–Р·РЅСЋСЋС‚СЊСЃСЏ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prob-conclusion">
+      <div class="pc-lbl">Р РµР·СѓР»СЊС‚Р°С‚</div>
+      <div class="pc-text">
+        РљРѕРјРїР°РЅС–СЏ С„С–РЅР°РЅСЃСѓС” РІРёРєРѕРЅР°РЅРЅСЏ <em>Р· РІР»Р°СЃРЅРѕС— РєРёС€РµРЅС–.</em> Р’С–РґС…РёР»РµРЅРЅСЏ РЅР°РєРѕРїРёС‡СѓСЋС‚СЊСЃСЏ РЅРµРїРѕРјС–С‚РЅРѕ. РњР°СЂР¶Р° РЅРµ СѓРїСЂР°РІР»СЏС”С‚СЊСЃСЏ вЂ” РІРѕРЅР° РїСЂРѕСЃС‚Рѕ Р·'СЏРІР»СЏС”С‚СЊСЃСЏ (Р°Р±Рѕ РЅРµ Р·'СЏРІР»СЏС”С‚СЊСЃСЏ) РїС–СЃР»СЏ Р·Р°РІРµСЂС€РµРЅРЅСЏ.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DEFINITION + TWO SIDES -->
+<section class="section tinted">
+  <div class="wide">
+    <div class="lbl">Р©Рѕ С‚Р°РєРµ Financial Delivery Office</div>
+
+    <div class="def-block">
+      <div class="def-title">FDO Р±СѓРґСѓС” Р·Р°РјРєРЅСѓС‚РёР№ РєРѕРЅС‚СѓСЂ WBS в†’ Fact в†’ ETC в†’ Acts в†’ Cash в†’ Profit С– СЂРѕР±РёС‚СЊ РЅРµРјРѕР¶Р»РёРІРёРј С–РіРЅРѕСЂСѓРІР°РЅРЅСЏ СЂРµР°Р»СЊРЅРѕСЃС‚С–.</div>
+      <div class="def-body">
+        РќРµ РєРѕРЅСЃСѓР»СЊС‚Р°РЅС‚ Р· СЂРµРєРѕРјРµРЅРґР°С†С–СЏРјРё. РќРµ Р°СѓРґРёС‚РѕСЂ Р·С– Р·РІС–С‚РѕРј. <strong>РЎРёСЃС‚РµРјР° СЏРєР° РїРµСЂРµРІРѕРґРёС‚СЊ С„С–РЅР°РЅСЃРѕРІРёР№ СЂРµР·СѓР»СЊС‚Р°С‚ РїСЂРѕРµРєС‚С–РІ Р· РѕР±Р»Р°СЃС‚С– С–РЅС‚СѓС—С†С–С— РІ РѕР±Р»Р°СЃС‚СЊ РґРµС‚РµСЂРјС–РЅРѕРІР°РЅРѕРіРѕ СѓРїСЂР°РІР»С–РЅРЅСЏ.</strong> РљРѕР¶РµРЅ РµР»РµРјРµРЅС‚ РІРёРјС–СЂСЋС”С‚СЊСЃСЏ. РљРѕР¶РµРЅ Р·РІ'СЏР·РѕРє РєРѕРЅС‚СЂРѕР»СЋС”С‚СЊСЃСЏ. РљРѕР¶РЅРµ РІС–РґС…РёР»РµРЅРЅСЏ С„С–РєСЃСѓС”С‚СЊСЃСЏ РґРѕ С„С–РЅР°РЅСЃРѕРІРѕРіРѕ РЅР°СЃР»С–РґРєСѓ вЂ” С– Р·СЃРµСЂРµРґРёРЅРё, С– Р·Р·РѕРІРЅС–.
+      </div>
+    </div>
+
+    <div class="two-sides">
+      <div class="ts int">
+        <div class="ts-tag">Р’РЅСѓС‚СЂС–С€РЅС–Р№ РєРѕРЅС‚СѓСЂ В· РєРѕРјР°РЅРґР°</div>
+        <div class="ts-title">Р—Р°РјРєРЅСѓС‚РёР№ РєРѕРЅС‚СЂРѕР»СЊ РІРёС‚СЂР°С‚</div>
+        <ul class="ts-items">
+          <div class="ts-item">
+            <div class="ts-item-icon">ETC</div>
+            <div>
+              <div class="ts-item-title">ETC-РєРѕРЅС‚СЂРѕР»СЊ С‰РѕС‚РёР¶РЅСЏ вЂ” Р·Р±РёС‚РѕРє РІРёРґРЅРѕ Р·Р° РјС–СЃСЏС†СЊ РґРѕ Р·Р°РІРµСЂС€РµРЅРЅСЏ</div>
+              <div class="ts-item-desc">Р’РёС‚СЂР°С‡РµРЅРѕ 70% Р±СЋРґР¶РµС‚Сѓ РїСЂРё 55% РІРёРєРѕРЅР°РЅРЅСЏ вЂ” Alert С–РґРµ РѕРґСЂР°Р·Сѓ, Р· РїСЂРёС‡РёРЅРѕСЋ С– СЂРµРєРѕРјРµРЅРґР°С†С–С”СЋ.</div>
+            </div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-item-icon">вњ•</div>
+            <div>
+              <div class="ts-item-title">Veto Power вЂ” Р¶РѕРґРµРЅ РµС‚Р°Рї РЅРµ СЃС‚Р°СЂС‚СѓС” Р±РµР· Р·Р°С‚РІРµСЂРґР¶РµРЅРѕРіРѕ Р±СЋРґР¶РµС‚Сѓ</div>
+              <div class="ts-item-desc">РЇРєС‰Рѕ РїСЂРѕРіРЅРѕР· РјР°СЂР¶С– РїР°РґР°С” РЅРёР¶С‡Рµ Р»С–РјС–С‚Сѓ вЂ” С–РЅС–С†С–СЋС”РјРѕ Р·СѓРїРёРЅРєСѓ РґРѕ С‚РѕРіРѕ СЏРє СЂРµСЃСѓСЂСЃ РІРёС‚СЂР°С‡РµРЅРѕ.</div>
+            </div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-item-icon">в†»</div>
+            <div>
+              <div class="ts-item-title">Р”РёСЃС†РёРїР»С–РЅР° С‚СЂРµРєС–РЅРіСѓ С‰РѕРґРЅСЏ</div>
+              <div class="ts-item-desc">РљРѕРЅС‚СЂРѕР»СЊ СЃРїРёСЃР°РЅРЅСЏ С‡Р°СЃСѓ. РџСѓС€РёРјРѕ СЏРє Duolingo: С‡РµСЂРІРѕРЅС–С”РјРѕ СЏРєС‰Рѕ РґС–СЏ РЅРµ РІРёРєРѕРЅР°РЅР° РІС‡Р°СЃРЅРѕ.</div>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+      <div class="ts ext">
+        <div class="ts-tag">Р—РѕРІРЅС–С€РЅС–Р№ РєРѕРЅС‚СѓСЂ В· Р·Р°РјРѕРІРЅРёРє</div>
+        <div class="ts-title">РљРѕРЅС‚СЂРѕР»СЊ Р·РјС–РЅ С– РјРѕРЅРµС‚РёР·Р°С†С–С—</div>
+        <ul class="ts-items">
+          <div class="ts-item">
+            <div class="ts-item-icon">РўР—</div>
+            <div>
+              <div class="ts-item-title">Р—РјС–РЅР° РўР— в†’ Р°РІС‚РѕРјР°С‚РёС‡РЅР° РµСЃРєР°Р»Р°С†С–СЏ РґРѕРї. СѓРіРѕРґРё</div>
+              <div class="ts-item-desc">FDO С„С–РєСЃСѓС” Р·РјС–РЅСѓ С– С–РЅС–С†С–СЋС” РґРѕРї. СѓРіРѕРґСѓ РґРѕ РїРѕС‡Р°С‚РєСѓ РІРёРєРѕРЅР°РЅРЅСЏ. Р РµРіР»Р°РјРµРЅС‚ вЂ” РЅРµ РїСЂРѕС…Р°РЅРЅСЏ.</div>
+            </div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-item-icon">вњ•3</div>
+            <div>
+              <div class="ts-item-title">Р›С–РјС–С‚ РїСЂР°РІРѕРє РІРёС‡РµСЂРїР°РЅРѕ вЂ” СЂР°С…СѓРЅРѕРє РІРёСЃС‚Р°РІР»РµРЅРѕ</div>
+              <div class="ts-item-desc">Р’Р»Р°СЃРЅРёРє Р±С–Р»СЊС€Рµ РЅРµ "РїРѕРіР°РЅРёР№" вЂ” С” СЂРµРіР»Р°РјРµРЅС‚. Р—Р°РјРѕРІРЅРёРє РїС–РґРїРёСЃСѓС” СЏРє РґС–Р»РѕРІСѓ РїСЂРѕС†РµРґСѓСЂСѓ.</div>
+            </div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-item-icon">$+</div>
+            <div>
+              <div class="ts-item-title">Р–РѕРґРµРЅ РѕР±СЃСЏРі РїРѕРЅР°Рґ РєРѕРЅС‚СЂР°РєС‚ РЅРµ РІРёРєРѕРЅСѓС”С‚СЊСЃСЏ Р±РµР·РєРѕС€С‚РѕРІРЅРѕ</div>
+              <div class="ts-item-desc">FDO РІРµРґРµ СЂРµС”СЃС‚СЂ СЂРѕР·С€РёСЂРµРЅСЊ С– РїСѓС€РёС‚СЊ РЅР° РґРѕРї. СѓРіРѕРґРё РґРѕ С‚РѕРіРѕ СЏРє СЂРѕР±РѕС‚Рё РІРёРєРѕРЅР°РЅС–.</div>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scope creep case -->
+    <div class="scope-case">
+      <div class="sc-lbl">РўРёРїРѕРІРёР№ СЃС†РµРЅР°СЂС–Р№ В· Р”Рµ Р·РЅРёРєР°СЋС‚СЊ 17% РјР°СЂР¶С–</div>
+      <div class="sc-flow">
+        <div class="sc-box">
+          <div class="sc-box-lbl">Р‘РµР· FDO</div>
+          <div class="sc-box-text">Р—Р°РјРѕРІРЅРёРє Р·РјС–РЅРёРІ РўР— РЅР° СЃС‚Р°РґС–С— Р Р”. <strong>РћР±СЃСЏРі +20%.</strong> Р’Р»Р°СЃРЅРёРє РјРѕРІС‡РёС‚СЊ: В«РѕР±СЂР°Р·РёС‚СЊСЃСЏ вЂ” РїС–РґРµ РґРѕ С–РЅС€РѕРіРѕВ». РљРѕРјР°РЅРґР° РІРёРєРѕРЅСѓС”.</div>
+        </div>
+        <div class="sc-arr">в†’</div>
+        <div class="sc-box">
+          <div class="sc-box-lbl">Р РµР·СѓР»СЊС‚Р°С‚</div>
+          <div class="sc-box-text">РњР°СЂР¶Р° <strong>РІРїР°Р»Р° Р· 25% РґРѕ 8%.</strong> Р—Р°РјРѕРІРЅРёРє Р·Р°РґРѕРІРѕР»РµРЅРёР№. Р’Р»Р°СЃРЅРёРє РїРѕРґР°СЂСѓРІР°РІ 17% РјР°СЂР¶С– С‰РѕР± В«РЅРµ РѕР±СЂР°Р·РёС‚РёВ».</div>
+        </div>
+      </div>
+      <div class="sc-resolution">
+        <strong>Р— FDO:</strong> РїСЂРё Р·РјС–РЅС– РўР— вЂ” Р°РІС‚РѕРјР°С‚РёС‡РЅРёР№ Alert С– РіРѕС‚РѕРІРµ РѕР±Т‘СЂСѓРЅС‚СѓРІР°РЅРЅСЏ РґР»СЏ Р·Р°РјРѕРІРЅРёРєР°. Р’Р»Р°СЃРЅРёРє РЅРµ "РїСЂРѕСЃРёС‚СЊ" вЂ” <em>СЂРµРіР»Р°РјРµРЅС‚ РІРёРјР°РіР°С” РѕС„РѕСЂРјР»РµРЅРЅСЏ Р·РјС–РЅ.</em> РњР°СЂР¶Р° Р·Р°Р»РёС€Р°С”С‚СЊСЃСЏ РЅР° СЂС–РІРЅС– 25%+.
+      </div>
+    </div>
+
+    <div class="key-prop">
+      <div class="kp-lbl">РђСЂС…С–С‚РµРєС‚СѓСЂРЅР° РІР»Р°СЃС‚РёРІС–СЃС‚СЊ</div>
+      <div class="kp-text">
+        РЎРёСЃС‚РµРјР° РІРёРєР»СЋС‡Р°С” "РЅРµРІРёРґРёРјС–" РїРµСЂРµРІРёС‚СЂР°С‚Рё, РІС–РґРєР»Р°РґРµРЅРµ Р°РєС‚СѓРІР°РЅРЅСЏ С– СЂРѕР·СЂРёРІ РјС–Р¶ РІРёРєРѕРЅР°РЅРЅСЏРј С– РѕРїР»Р°С‚РѕСЋ. <em>РќРµРјРѕР¶Р»РёРІРѕ РѕС‚СЂРёРјР°С‚Рё С„С–РЅР°РЅСЃРѕРІРёР№ СЂРµР·СѓР»СЊС‚Р°С‚, РЅРµ РїСЂРѕР№С€РѕРІС€Рё РєРѕРЅС‚СЂРѕР»СЊРѕРІР°РЅС– СЃС‚Р°РЅРё СЃРёСЃС‚РµРјРё.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEP -->
+<section class="section dark">
+  <div class="wide">
+    <div class="lbl" style="color:#555048">РњР°С‚РµРјР°С‚РёРєР° РїСЂРѕР±Р»РµРјРё В· РўРѕС‡РєР° Р±РµР·Р·Р±РёС‚РєРѕРІРѕСЃС‚С–<span style="flex:1;height:1px;background:#252318;display:block;margin-left:1rem"></span></div>
+    <h2 class="sec-h light">РњР°СЂР¶Р° 15% Р·Р°РјС–СЃС‚СЊ 25% вЂ” С†Рµ <em>$100 000 РЅР° РјС–СЃСЏС†СЊ</em> СЏРєРёС… Р±СЂР°РєСѓС” С‰РѕР± РІРёР№С‚Рё РІ РЅСѓР»СЊ.</h2>
+    <p class="sec-sub light"><strong style="color:#d4cec4">Р’С…С–РґРЅС– РґР°РЅС–: 25 РѕСЃС–Р± (20 РІРёРєРѕРЅР°РІС†С–РІ + 5 РјРµРЅРµРґР¶РµСЂС–РІ), Р·Р°СЂРїР»Р°С‚Р° $1 500/РјС–СЃСЏС†СЊ.</strong></p>
+
+    <div class="bep-inputs">
+      <div class="bi">
+        <div class="bi-lbl">РљРѕРјР°РЅРґР°</div>
+        <div class="bi-val">25</div>
+        <div class="bi-sub">20 РІРёРєРѕРЅР°РІС†С–РІ + 5 РјРµРЅРµРґР¶РµСЂС–РІ</div>
+      </div>
+      <div class="bi">
+        <div class="bi-lbl">Р¤РћРџ С‰РѕРјС–СЃСЏС†СЏ</div>
+        <div class="bi-val">$37 500</div>
+        <div class="bi-sub">25 Г— $1 500 В· РЅРµР·Р°Р»РµР¶РЅРѕ РІС–Рґ РІРёСЂСѓС‡РєРё</div>
+      </div>
+      <div class="bi">
+        <div class="bi-lbl">Р¤РѕСЂРјСѓР»Р° BEP</div>
+        <div class="bi-val" style="font-size:1.1rem;margin-top:.25rem;line-height:1.5">Р¤РћРџ Г· РњР°СЂР¶Р°%</div>
+        <div class="bi-sub">Р’РёСЂСѓС‡РєР° РїСЂРё СЏРєС–Р№ РІР°Р»РѕРІРёР№ РїСЂРёР±СѓС‚РѕРє РїРѕРєСЂРёРІР°С” Р¤РћРџ</div>
+      </div>
+    </div>
+
+    <div class="bep-scenarios">
+      <div class="bs g">
+        <div class="bs-tag">Р¦С–Р»СЊ FDO</div>
+        <div class="bs-pct">25%</div>
+        <div class="bs-rev">BEP: <strong>$150 000 / РјС–СЃСЏС†СЊ</strong></div>
+        <div class="bs-rows">
+          <div class="bs-row"><span class="bs-row-k">Р’РёСЂСѓС‡РєР° РЅР° 1 РѕСЃРѕР±Сѓ</span><span class="bs-row-v">$6 000 / РјС–СЃ</span></div>
+          <div class="bs-row"><span class="bs-row-k">РџСЂРѕРµРєС‚С–РІ РїРѕ $20K С‰РѕР± РІРёР№С‚Рё РІ РЅСѓР»СЊ</span><span class="bs-row-v">7вЂ“8 / РјС–СЃСЏС†СЊ</span></div>
+          <div class="bs-row"><span class="bs-row-k" style="color:var(--gold-light)">РЎС‚Р°РЅ</span><span class="bs-row-v" style="color:var(--gold-light)">РЎС‚С–Р№РєРѕ. Р”РѕСЃСЏР¶РЅРѕ. РњР°СЃС€С‚Р°Р±СѓС”С‚СЊСЃСЏ.</span></div>
+        </div>
+      </div>
+      <div class="bs b">
+        <div class="bs-tag">В«Р’СЃРµ РЅРѕСЂРјР°Р»СЊРЅРѕВ»</div>
+        <div class="bs-pct">15%</div>
+        <div class="bs-rev">BEP: <strong>$250 000 / РјС–СЃСЏС†СЊ</strong></div>
+        <div class="bs-rows">
+          <div class="bs-row"><span class="bs-row-k">Р’РёСЂСѓС‡РєР° РЅР° 1 РѕСЃРѕР±Сѓ</span><span class="bs-row-v">$10 000 / РјС–СЃ</span></div>
+          <div class="bs-row"><span class="bs-row-k">РџСЂРѕРµРєС‚С–РІ РїРѕ $20K С‰РѕР± РІРёР№С‚Рё РІ РЅСѓР»СЊ</span><span class="bs-row-v">12вЂ“13 / РјС–СЃСЏС†СЊ</span></div>
+          <div class="bs-row"><span class="bs-row-k" style="color:var(--accent)">РЎС‚Р°РЅ</span><span class="bs-row-v" style="color:var(--accent)">РљРѕРјРїР°РЅС–СЏ С„С–РЅР°РЅСЃСѓС” СЂРѕР±РѕС‚Сѓ Р· РІР»Р°СЃРЅРѕС— РєРёС€РµРЅС–.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bep-bridge">
+      <div class="bb-lbl">Р—РІС–РґСЃРё вЂ” Р±С–Р·РЅРµСЃ-РєРµР№СЃ РґР»СЏ FDO</div>
+      <div class="bb-text">
+        Р С–Р·РЅРёС†СЏ РјС–Р¶ РјР°СЂР¶РµСЋ 15% С– 25% вЂ” С†Рµ <em>$100 000 РІРёСЂСѓС‡РєРё РЅР° РјС–СЃСЏС†СЊ</em> СЏРєРёС… Р±СЂР°РєСѓС”. РђР±Рѕ вЂ” Р·Р°РјРєРЅСѓС‚РёР№ С„С–РЅР°РЅСЃРѕРІРёР№ РєРѕРЅС‚СѓСЂ СЏРєРёР№ СѓС‚СЂРёРјСѓС” РјР°СЂР¶Сѓ РЅР° 25%+. РџРµСЂС€РёР№ С€Р»СЏС… РІРёРјР°РіР°С” Р±С–Р»СЊС€Рµ РїСЂРѕРґР°Р¶С–РІ Р°Р±Рѕ РІР»Р°СЃРЅРёС… РіСЂРѕС€РµР№. Р”СЂСѓРіРёР№ вЂ” <em>70 000вЂ“100 000 РіСЂРЅ РЅР° РјС–СЃСЏС†СЊ.</em>
+      </div>
+      <div class="bb-sub">Р‘РµР· СѓСЂР°С…СѓРІР°РЅРЅСЏ РџР”Р’ С– РїРѕРІРЅРѕРіРѕ РїРѕРґР°С‚РєРѕРІРѕРіРѕ РЅР°РІР°РЅС‚Р°Р¶РµРЅРЅСЏ. РЈ СЂРµР°Р»СЊРЅРёС… СѓРјРѕРІР°С… BEP Р·РјС–С‰СѓС”С‚СЊСЃСЏ <strong>РІРіРѕСЂСѓ РЅР° 20вЂ“40%</strong> вЂ” С‰Рѕ СЂРѕР±РёС‚СЊ РєРѕРЅС‚СЂРѕР»СЊ РјР°СЂР¶С– С‰Рµ РєСЂРёС‚РёС‡РЅС–С€РёРј.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MANAGEMENT CYCLE -->
+<section class="section">
+  <div class="wide">
+    <div class="lbl">РџСЂРёРЅС†РёРї СЂРѕР±РѕС‚Рё</div>
+    <h2 class="sec-h">Р—Р°РјРєРЅСѓС‚РёР№ СѓРїСЂР°РІР»С–РЅСЃСЊРєРёР№ С†РёРєР». <em>Р©РѕС‚РёР¶РЅСЏ. Р‘РµР· РІРёРЅСЏС‚РєС–РІ.</em></h2>
+    <p class="sec-sub">Р”Р°РЅС– в†’ РЎРёРЅС…СЂРѕРЅС–Р·Р°С†С–СЏ в†’ Р С–С€РµРЅРЅСЏ в†’ Р—Р°РґР°С‡С– в†’ Р’РёРєРѕРЅР°РЅРЅСЏ в†’ РЅР°Р·Р°Рґ Сѓ СЃРёСЃС‚РµРјСѓ. Р¦РёРєР» РїРѕРІС‚РѕСЂСЋС”С‚СЊСЃСЏ С– РЅРµ РґРѕР·РІРѕР»СЏС” РІС–РґС…РёР»РµРЅРЅСЏРј РЅР°РєРѕРїРёС‡СѓРІР°С‚РёСЃСЊ РЅРµРїРѕРјС–С‚РЅРѕ.</p>
+
+    <div class="cycle">
+      <div class="cycle-head">
+        <div class="cycle-head-title">РЈРїСЂР°РІР»С–РЅСЃСЊРєРёР№ С†РёРєР» FDO В· С‰РѕС‚РёР¶РЅРµРІРѕ</div>
+        <div class="cycle-head-badge">Р”РµС‚РµСЂРјС–РЅРѕРІР°РЅРёР№ В· РџРѕРІС‚РѕСЂСЋРІР°РЅРёР№ В· Р—Р°РјРєРЅСѓС‚РёР№</div>
+      </div>
+      <div class="cycle-steps">
+        <div class="cs">
+          <div class="cs-n">1</div>
+          <div class="cs-title">Р”Р°РЅС– С„С–РєСЃСѓСЋС‚СЊСЃСЏ</div>
+          <div class="cs-body">РљР°СЂС‚Р° РїСЂРѕРµРєС‚Сѓ РѕРЅРѕРІР»РµРЅР°. ETC Р°РєС‚СѓР°Р»СЊРЅРёР№. Р¤Р°РєС‚ СЃРїРёСЃР°РЅРёР№.</div>
+        </div>
+        <div class="cs">
+          <div class="cs-n">2</div>
+          <div class="cs-title">Р”Р°РЅС– СЃРёРЅС…СЂРѕРЅС–Р·СѓСЋС‚СЊСЃСЏ</div>
+          <div class="cs-body">Р©РѕС‚РёР¶РЅРµРІР° РЅР°СЂР°РґР°. Р’СЃС– PM вЂ” С”РґРёРЅРёР№ С„РѕСЂРјР°С‚. Р’СЃС– РІС–РґС…РёР»РµРЅРЅСЏ РѕР·РІСѓС‡РµРЅС–.</div>
+        </div>
+        <div class="cs">
+          <div class="cs-n">3</div>
+          <div class="cs-title">Р С–С€РµРЅРЅСЏ РїСЂРёР№РЅСЏС‚С–</div>
+          <div class="cs-body">Fireflies С„С–РєСЃСѓС”. COO РїС–РґС‚РІРµСЂРґР¶СѓС”. РџСЂРѕС‚РѕРєРѕР» РіРѕС‚РѕРІРёР№.</div>
+        </div>
+        <div class="cs">
+          <div class="cs-n">4</div>
+          <div class="cs-title">Р—Р°РґР°С‡С– РІ Asana</div>
+          <div class="cs-body">РљРѕР¶РЅРµ СЂС–С€РµРЅРЅСЏ вЂ” Р·Р°РґР°С‡Р° Р· РІРёРєРѕРЅР°РІС†РµРј С– РґРµРґР»Р°Р№РЅРѕРј.</div>
+        </div>
+        <div class="cs">
+          <div class="cs-n">5</div>
+          <div class="cs-title">Р’РёРєРѕРЅР°РЅРЅСЏ РїРѕРІРµСЂС‚Р°С”С‚СЊСЃСЏ</div>
+          <div class="cs-body">Р¤Р°РєС‚ в†’ СЃРёСЃС‚РµРјР°. Р¦РёРєР» РїРѕС‡РёРЅР°С”С‚СЊСЃСЏ Р·РЅРѕРІСѓ.</div>
+        </div>
+      </div>
+      <div class="cycle-note">РЇРєС–СЃС‚СЊ ETC = СЏРєС–СЃС‚СЊ СѓРїСЂР°РІР»С–РЅРЅСЏ. РЎРёСЃС‚РµРјР° РІР±СѓРґРѕРІСѓС” С‚РёСЃРє РЅР° С‚РѕС‡РЅС–СЃС‚СЊ РїСЂРѕРіРЅРѕР·Сѓ вЂ” СЂРµРіСѓР»СЏСЂРЅРµ РѕРЅРѕРІР»РµРЅРЅСЏ, РІРёСЏРІР»РµРЅРЅСЏ РІС–РґС…РёР»РµРЅСЊ, РІС–РґРїРѕРІС–РґР°Р»СЊРЅС–СЃС‚СЊ.</div>
+    </div>
+
+    <!-- FDR Meeting -->
+    <div class="fdr-block">
+      <div class="fdr-head">
+        <div class="fdr-head-title">Weekly Financial Delivery Review В· Р©РѕС‚РёР¶РЅСЏ</div>
+        <div class="fdr-head-badge">РЎС‚Р°РЅРґР°СЂС‚РёР·РѕРІР°РЅРёР№ РїСЂРѕС‚РѕРєРѕР» В· РђРІС‚РѕРјР°С‚РёС‡РЅР° С„С–РєСЃР°С†С–СЏ</div>
+      </div>
+      <div class="fdr-body">
+        <p class="fdr-body-text">
+          РљРѕР¶РµРЅ PM Р·РІС–С‚СѓС” <strong>Р·Р° С”РґРёРЅРёРј С€Р°Р±Р»РѕРЅРѕРј FDO.</strong> РќР°СЂР°РґР° Р·Р°РїРёСЃСѓС”С‚СЊСЃСЏ Сѓ Fireflies вЂ” С‚СЂР°РЅСЃРєСЂРёРїС‚ С– summary Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ. Р—Р°РґР°С‡С– СЂРѕР·РїРѕРґС–Р»СЏСЋС‚СЊСЃСЏ РІ Asana. Р¤РѕР»РѕСѓР°Рї РєРѕРЅС‚СЂРѕР»СЋС”С‚СЊСЃСЏ РґРѕ РЅР°СЃС‚СѓРїРЅРѕС— РЅР°СЂР°РґРё.
+        </p>
+        <div class="fdr-flow">
+          <div class="fdr-step">
+            <div class="fdr-step-n">1</div>
+            <div class="fdr-step-tool">РЁР°Р±Р»РѕРЅ FDO</div>
+            <div class="fdr-step-text">ETC, СЃС‚Р°С‚СѓСЃ Р°РєС‚С–РІ, Р·РјС–РЅРё РўР—, СЂРёР·РёРєРё вЂ” РєРѕР¶РµРЅ PM РІ РѕРґРЅРѕРјСѓ С„РѕСЂРјР°С‚С–</div>
+          </div>
+          <div class="fdr-step">
+            <div class="fdr-step-n">2</div>
+            <div class="fdr-step-tool">Fireflies</div>
+            <div class="fdr-step-text">РђРІС‚РѕРјР°С‚РёС‡РЅР° С„С–РєСЃР°С†С–СЏ, С‚СЂР°РЅСЃРєСЂРёРїС‚, AI summary</div>
+          </div>
+          <div class="fdr-step">
+            <div class="fdr-step-n">3</div>
+            <div class="fdr-step-tool">Asana</div>
+            <div class="fdr-step-text">Р—Р°РґР°С‡С– Р· РЅР°СЂР°РґРё вЂ” РІРёРєРѕРЅР°РІРµС†СЊ С– РґРµРґР»Р°Р№РЅ Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ</div>
+          </div>
+          <div class="fdr-step">
+            <div class="fdr-step-n">4</div>
+            <div class="fdr-step-tool">Telegram</div>
+            <div class="fdr-step-text">Summary РґРѕ РІР»Р°СЃРЅРёРєР° РґРѕ 18:00 С‚РѕРіРѕ Р¶ РґРЅСЏ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- RHYTHM TABLE -->
+<section class="section tinted">
+  <div class="wide">
+    <div class="lbl">РџРѕРІРЅРёР№ РѕРїРµСЂР°С†С–Р№РЅРёР№ СЂРёС‚Рј</div>
+    <h2 class="sec-h">РљРѕР¶РЅР° РїРѕР·РёС†С–СЏ вЂ” <em>Р°СЂС‚РµС„Р°РєС‚</em> СЏРєРёР№ РјРѕР¶РЅР° РІС–РґРєСЂРёС‚Рё С– РїРµСЂРµРІС–СЂРёС‚Рё.</h2>
+
+    <table class="rt">
+      <thead>
+        <tr>
+          <th>Р§Р°СЃС‚РѕС‚Р°</th>
+          <th>Р©Рѕ РІС–РґР±СѓРІР°С”С‚СЊСЃСЏ</th>
+          <th>РҐС‚Рѕ</th>
+          <th>Р©Рѕ РґР°С” РІР»Р°СЃРЅРёРєСѓ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="fb fd">Р©РѕРґРЅСЏ</span></td>
+          <td>РљРѕРЅС‚СЂРѕР»СЊ С‚СЂРµРєС–РЅРіСѓ С‡Р°СЃСѓ: С…С‚Рѕ РЅРµ СЃРїРёСЃР°РІ, С…С‚Рѕ СЃРїРёСЃР°РІ РЅРµ С‚СѓРґРё вЂ” РЅРѕС‚РёС„С–РєР°С†С–СЏ PM</td>
+          <td class="who">РђРґРјС–РЅС–СЃС‚СЂР°С‚РѕСЂ</td>
+          <td class="res">Р”Р°РЅС– РґР»СЏ ETC Р°РєС‚СѓР°Р»СЊРЅС– Р·Р°РІР¶РґРё</td>
+        </tr>
+        <tr>
+          <td><span class="fb fd">Р©РѕРґРЅСЏ</span></td>
+          <td>РњРѕРЅС–С‚РѕСЂРёРЅРі СѓРјРѕРІ РєРѕРЅС‚СЂР°РєС‚С–РІ: С‡Рё РЅР°СЃС‚Р°Р»Рё РїРѕРґС–С— РґР»СЏ РІРёСЃС‚Р°РІР»РµРЅРЅСЏ Р°РєС‚С–РІ С– СЂР°С…СѓРЅРєС–РІ</td>
+          <td class="who">Р•РєРѕРЅРѕРјС–СЃС‚</td>
+          <td class="res">Р–РѕРґРµРЅ Р°РєС‚ РЅРµ В«Р·Р°РіСѓР±РёС‚СЊСЃСЏВ»</td>
+        </tr>
+        <tr>
+          <td><span class="fb fe">РџСЂРё Р·РјС–РЅС–</span></td>
+          <td>Р—РјС–РЅР° РўР— Р°Р±Рѕ РІРёС‡РµСЂРїР°РЅРЅСЏ Р»С–РјС–С‚Сѓ РїСЂР°РІРѕРє в†’ Alert + РїСЂРѕРµРєС‚ РґРѕРї. СѓРіРѕРґРё РґР»СЏ Р·Р°РјРѕРІРЅРёРєР°</td>
+          <td class="who">Р•РєРѕРЅРѕРјС–СЃС‚ + COO</td>
+          <td class="res">Р’Р»Р°СЃРЅРёРє РЅРµ В«РїСЂРѕСЃРёС‚СЊВ» вЂ” СЂРµРіР»Р°РјРµРЅС‚ РІРёРјР°РіР°С”</td>
+        </tr>
+        <tr>
+          <td><span class="fb fw">Р©РѕС‚РёР¶РЅСЏ</span></td>
+          <td>Р§РµРє-Р»РёСЃС‚ РџР•Р’: РґРёСЃС†РёРїР»С–РЅР° С‡Р°СЃСѓ, ETC, СЃС‚Р°С‚СѓСЃ Р°РєС‚С–РІ, РґРµР±С–С‚РѕСЂРєР° вЂ” С‰РѕРїРѕРЅРµРґС–Р»РєР° РґРѕ 12:00</td>
+          <td class="who">РђРґРјС–РЅ + Р•РєРѕРЅРѕРјС–СЃС‚</td>
+          <td class="res">РўРёР¶РЅРµРІРёР№ Р·СЂС–Р· Р±РµР· Р¶РѕРґРЅРѕРіРѕ Р·Р°РїРёС‚Сѓ</td>
+        </tr>
+        <tr>
+          <td><span class="fb fw">Р©РѕС‚РёР¶РЅСЏ</span></td>
+          <td>Alert Report: ETC &gt;70% Р±СЋРґР¶РµС‚Сѓ РїСЂРё &lt;60% РІРёРєРѕРЅР°РЅРЅСЏ вЂ” РїСЂРёС‡РёРЅР° С– СЂРµРєРѕРјРµРЅРґР°С†С–СЏ</td>
+          <td class="who">Р•РєРѕРЅРѕРјС–СЃС‚ + COO</td>
+          <td class="res">Р”С–С”С‚Рµ РґРѕ С‚РѕРіРѕ СЏРє Р·Р±РёС‚РѕРє Р·Р°С„С–РєСЃРѕРІР°РЅРѕ</td>
+        </tr>
+        <tr>
+          <td><span class="fb fw">Р©РѕС‚РёР¶РЅСЏ</span></td>
+          <td>Financial Delivery Review: С”РґРёРЅРёР№ С€Р°Р±Р»РѕРЅ в†’ Fireflies в†’ Asana в†’ Summary РґРѕ РІР»Р°СЃРЅРёРєР°</td>
+          <td class="who">COO + РћРїРµСЂ. РјРµРЅРµРґР¶РµСЂ</td>
+          <td class="res">Р С–С€РµРЅРЅСЏ РїСЂРёР№РЅСЏС‚С– С– РІРёРєРѕРЅСѓСЋС‚СЊСЃСЏ</td>
+        </tr>
+        <tr>
+          <td><span class="fb fw">Р©РѕС‚РёР¶РЅСЏ</span></td>
+          <td>Telegram-РґР°Р№РґР¶РµСЃС‚: СЃС‚Р°РЅ РїРѕСЂС‚С„РµР»СЏ, В«С‡РµСЂРІРѕРЅС–В» РїСЂРѕРµРєС‚Рё, РґРµР±С–С‚РѕСЂРєР° вЂ” С‰РѕРїРѕРЅРµРґС–Р»РєР° 08:00</td>
+          <td class="who">РЎРёСЃС‚РµРјР°</td>
+          <td class="res">РџРѕРІРЅР° РєР°СЂС‚РёРЅР° Р·Р° 2 С…РІРёР»РёРЅРё</td>
+        </tr>
+        <tr>
+          <td><span class="fb fm">Р©РѕРјС–СЃСЏС†СЏ</span></td>
+          <td>Р РµС”СЃС‚СЂ Р°РєС‚С–РІ С– РѕРїР»Р°С‚: РїС–РґРїРёСЃР°РЅС–, РїСЂРѕСЃС‚СЂРѕС‡РµРЅС–, РІ Р·РѕРЅС– СЂРёР·РёРєСѓ</td>
+          <td class="who">Р•РєРѕРЅРѕРјС–СЃС‚</td>
+          <td class="res">Cash flow РїРµСЂРµРґР±Р°С‡СѓРІР°РЅРёР№</td>
+        </tr>
+        <tr>
+          <td><span class="fb fm">Р©РѕРјС–СЃСЏС†СЏ</span></td>
+          <td>FDO Report: P&L РїРѕ РєРѕР¶РЅРѕРјСѓ РїСЂРѕРµРєС‚Сѓ + СЂРµРЅС‚Р°Р±РµР»СЊРЅС–СЃС‚СЊ РїРѕСЂС‚С„РµР»СЏ + 1 СЃС‚РѕСЂС–РЅРєР° РґР»СЏ РІР»Р°СЃРЅРёРєР°</td>
+          <td class="who">COO</td>
+          <td class="res">Р—РЅР°С”С‚Рµ РґРµ Р·Р°СЂРѕР±Р»СЏС”С‚Рµ, РґРµ вЂ” РЅС–</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="etc-quality">
+      <div class="eq-lbl">РљСЂРёС‚РёС‡РЅР° С‚РѕС‡РєР° СЃРёСЃС‚РµРјРё</div>
+      <div class="eq-text">РЇРєС–СЃС‚СЊ ETC = СЏРєС–СЃС‚СЊ СѓРїСЂР°РІР»С–РЅРЅСЏ.</div>
+      <div class="eq-sub">ETC (Estimate To Complete) вЂ” РїСЂРѕРіРЅРѕР· Р·Р°Р»РёС€РєСѓ С‚СЂСѓРґРѕРІРёС‚СЂР°С‚ РґРѕ Р·Р°РІРµСЂС€РµРЅРЅСЏ РїСЂРѕРµРєС‚Сѓ. Р¦Рµ С”РґРёРЅР° РјРµС‚СЂРёРєР° СЏРєР° РґРѕР·РІРѕР»СЏС” РїРѕР±Р°С‡РёС‚Рё РјР°Р№Р±СѓС‚РЅС–Р№ С„С–РЅР°РЅСЃРѕРІРёР№ СЂРµР·СѓР»СЊС‚Р°С‚ РґРѕ С‚РѕРіРѕ СЏРє РІС–РЅ СЃС‚Р°РІСЃСЏ. РЎРёСЃС‚РµРјР° FDO РІР±СѓРґРѕРІСѓС” РѕР±РѕРІ'СЏР·РєРѕРІРµ РѕРЅРѕРІР»РµРЅРЅСЏ ETC, РІРёСЏРІР»РµРЅРЅСЏ РІС–РґС…РёР»РµРЅСЊ С– С‚РёСЃРє РЅР° С‚РѕС‡РЅС–СЃС‚СЊ РїСЂРѕРіРЅРѕР·Сѓ вЂ” С‰РѕС‚РёР¶РЅСЏ, Р±РµР· РІРёРЅСЏС‚РєС–РІ.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIMITATIONS -->
+<section class="limits-section">
+  <div class="wide">
+    <div class="lbl">РљРѕР»Рё FDO РїС–РґС…РѕРґРёС‚СЊ / РЅРµ РїС–РґС…РѕРґРёС‚СЊ</div>
+    <h2 class="sec-h">РњРё РЅРµ Р±РµСЂРµРјРѕ РІСЃС–С…. РЎРёСЃС‚РµРјР° <em>РЅРµ РїСЂР°С†СЋС”</em> Р±РµР· С‚СЂСЊРѕС… СѓРјРѕРІ.</h2>
+    <p class="sec-sub">Р§РµСЃРЅС–СЃС‚СЊ РїСЂРѕ РѕР±РјРµР¶РµРЅРЅСЏ вЂ” С‡Р°СЃС‚РёРЅР° РЅР°С€РѕРіРѕ РїРѕР·РёС†С–РѕРЅСѓРІР°РЅРЅСЏ. РЎР°РјРµ С‚РѕРјСѓ СЃС‚СЂРµСЃ-С‚РµСЃС‚ Р±РµР·РєРѕС€С‚РѕРІРЅРёР№.</p>
+    <div class="limits-grid">
+      <div class="lim-col">
+        <div class="lim-col-lbl">FDO РґР°С” СЂРµР·СѓР»СЊС‚Р°С‚ СЏРєС‰Рѕ</div>
+        <ul class="lim-items">
+          <li class="lim-item">Р’Р»Р°СЃРЅРёРє РіРѕС‚РѕРІРёР№ РґРѕ РїСЂРѕР·РѕСЂРѕСЃС‚С– вЂ” РґР°РЅС– РІС–РґРєСЂРёС‚С– РґР»СЏ СЃРёСЃС‚РµРјРё</li>
+          <li class="lim-item">РљРµСЂС–РІРЅРёРєРё РїСЂРѕРµРєС‚С–РІ Р±РµСЂСѓС‚СЊ СѓС‡Р°СЃС‚СЊ Сѓ С‰РѕС‚РёР¶РЅРµРІС–Р№ РЅР°СЂР°РґС–</li>
+          <li class="lim-item">Р С–С€РµРЅРЅСЏ РїСЂРёР№РЅСЏС‚С– РЅР° РЅР°СЂР°РґС– РІРёРєРѕРЅСѓСЋС‚СЊСЃСЏ РјС–Р¶ Р·СѓСЃС‚СЂС–С‡Р°РјРё</li>
+          <li class="lim-item">Р„ Р±Р°Р·РѕРІР° WBS-СЃС‚СЂСѓРєС‚СѓСЂР° Р°Р±Рѕ РіРѕС‚РѕРІРЅС–СЃС‚СЊ С—С— РїРѕР±СѓРґСѓРІР°С‚Рё</li>
+        </ul>
+      </div>
+      <div class="lim-col">
+        <div class="lim-col-lbl">FDO РЅРµ РґР°С” СЂРµР·СѓР»СЊС‚Р°С‚Сѓ СЏРєС‰Рѕ</div>
+        <ul class="lim-items">
+          <li class="lim-item">Р”Р°РЅС– РЅРµ РѕРЅРѕРІР»СЋСЋС‚СЊСЃСЏ вЂ” С‚СЂРµРєС–РЅРі С– ETC РІРµРґСѓС‚СЊСЃСЏ РЅРµСЂРµРіСѓР»СЏСЂРЅРѕ</li>
+          <li class="lim-item">РљРµСЂС–РІРЅРёРєРё С–РіРЅРѕСЂСѓСЋС‚СЊ РЅР°СЂР°РґСѓ Р°Р±Рѕ Р·РІС–С‚СѓСЋС‚СЊ С„РѕСЂРјР°Р»СЊРЅРѕ</li>
+          <li class="lim-item">Р С–С€РµРЅРЅСЏ РїСЂРёР№РјР°СЋС‚СЊСЃСЏ Р°Р»Рµ РЅРµ РІРёРєРѕРЅСѓСЋС‚СЊСЃСЏ</li>
+          <li class="lim-item">Р’Р»Р°СЃРЅРёРє РЅРµ РіРѕС‚РѕРІРёР№ РґРѕ РµСЃРєР°Р»Р°С†С–С— Р·РјС–РЅ РўР— РїРµСЂРµРґ Р·Р°РјРѕРІРЅРёРєРѕРј</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section class="section">
+  <div class="wide">
+    <div class="lbl">РљРѕРјР°РЅРґР° FDO</div>
+    <h2 class="sec-h">Р§РµС‚РІРµСЂРѕ СЃРїРµС†С–Р°Р»С–СЃС‚С–РІ Р·Р°РјС–СЃС‚СЊ <em>РѕРґРЅРѕРіРѕ COO РІ С€С‚Р°С‚С–.</em></h2>
+    <p class="sec-sub">РњРѕРґРµР»СЊ СЏРє Сѓ Р°СѓРґРёС‚РѕСЂСЃСЊРєС–Р№ Р°Р±Рѕ Р±СѓС…РіР°Р»С‚РµСЂСЃСЊРєС–Р№ РєРѕРјРїР°РЅС–С—: РѕРґРЅР° РєРѕРјР°РЅРґР° вЂ” РєС–Р»СЊРєР° Р°РєР°СѓРЅС‚С–РІ. Р’Рё РїР»Р°С‚РёС‚Рµ Р·Р° С‡Р°СЃС‚РєСѓ С‡Р°СЃСѓ, РѕС‚СЂРёРјСѓС”С‚Рµ РїРѕРІРЅРёР№ С„СѓРЅРєС†С–РѕРЅР°Р».</p>
+    <div class="team-cards">
+      <div class="tm">
+        <div class="tm-role">РљРµСЂС–РІРЅРёР№ РїР°СЂС‚РЅРµСЂ</div>
+        <div class="tm-name">РђРЅРґСЂС–Р№ РњР°С‚РІС”С”РІ В· Р—Р°СЃРЅРѕРІРЅРёРє FDO</div>
+        <div class="tm-body">Р РµРЅС‚Р°Р±РµР»СЊРЅС–СЃС‚СЊ РїРѕСЂС‚С„РµР»СЏ С– cash flow. Р©РѕС‚РёР¶РЅРµРІР° РєРѕРЅСЃСѓР»СЊС‚Р°С†С–СЏ. Р©РѕРјС–СЃСЏС‡РЅРёР№ FDO Report. 25+ СЂРѕРєС–РІ Сѓ РїСЂРѕРµРєС‚РЅРѕРјСѓ Р±С–Р·РЅРµСЃС– вЂ” Р°СЂС…С–С‚РµРєС‚СѓСЂР°, Р±СѓРґС–РІРЅРёС†С‚РІРѕ, interior design, РЈРєСЂР°С—РЅР° С– РЎРЁРђ.</div>
+      </div>
+      <div class="tm">
+        <div class="tm-role">РћРїРµСЂР°С†С–Р№РЅРёР№ РєРѕРЅС‚СЂРѕР»РµСЂ</div>
+        <div class="tm-name">РћРїРµСЂР°С†С–Р№РЅРёР№ РјРµРЅРµРґР¶РµСЂ</div>
+        <div class="tm-body">РљРѕРЅС‚СЂРѕР»СЊ РїС–РґРїРёСЃР°РЅРЅСЏ РђРєС‚С–РІ С– ETC. Р•СЃРєР°Р»Р°С†С–СЏ РїСЂРё Р·РјС–РЅС– РўР— С– РїРµСЂРµРІРёС‰РµРЅРЅС– Р»С–РјС–С‚Сѓ РїСЂР°РІРѕРє. Р’РµРґРµ Financial Delivery Review вЂ” С€Р°Р±Р»РѕРЅ, Fireflies, С„РѕР»РѕСѓР°Рї РІ Asana.</div>
+      </div>
+      <div class="tm">
+        <div class="tm-role">Delivery Controller</div>
+        <div class="tm-name">РђРґРјС–РЅС–СЃС‚СЂР°С‚РѕСЂ РїСЂРѕРµРєС‚С–РІ</div>
+        <div class="tm-body">Р©РѕРґРµРЅРЅР° СЂРѕР±РѕС‚Р° РІ if.team / Asana / Jira РєР»С–С”РЅС‚Р°. РўСЂРµРєС–РЅРі С‡Р°СЃСѓ, WBS, ETC. Р—РІС–Р»СЊРЅСЏС” PM РІС–Рґ Р°РґРјС–РЅСЂСѓС‚РёРЅРё вЂ” С‰РѕРґРЅСЏ.</div>
+      </div>
+      <div class="tm">
+        <div class="tm-role">Financial Controller</div>
+        <div class="tm-name">Р•РєРѕРЅРѕРјС–СЃС‚ РїСЂРѕРµРєС‚С–РІ</div>
+        <div class="tm-body">Р РµС”СЃС‚СЂ РєРѕРЅС‚СЂР°РєС‚С–РІ, Р°РєС‚С–РІ, СЂР°С…СѓРЅРєС–РІ, РѕРїР»Р°С‚. P&L РїРѕ РєРѕР¶РЅРѕРјСѓ РїСЂРѕРµРєС‚Сѓ. Р”РµР±С–С‚РѕСЂРєР°. Alert Reports РїСЂРё СЂРёР·РёРєСѓ РјР°СЂР¶С– вЂ” Р·СЃРµСЂРµРґРёРЅРё С– Р·Р·РѕРІРЅС–.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAYMENT MODELS -->
+<section class="section dark">
+  <div class="wide">
+    <div class="lbl" style="color:#555048">Р’Р°СЂС‚С–СЃС‚СЊ С– РјРѕРґРµР»С– РѕРїР»Р°С‚Рё<span style="flex:1;height:1px;background:#252318;display:block;margin-left:1rem"></span></div>
+    <h2 class="sec-h light">РЎРїС–РІСЂРѕР·РјС–СЂРЅРѕ РІР°СЂС‚РѕСЃС‚С– <em>РѕРґРЅРѕРіРѕ СЃРёР»СЊРЅРѕРіРѕ PM</em> РІ С€С‚Р°С‚С–. РђР»Рµ Р·Р°РјС–СЃС‚СЊ РѕРґРЅРѕРіРѕ вЂ” С‡РµС‚РІРµСЂРѕ.</h2>
+
+    <div class="models" style="margin-bottom:2.5rem">
+      <div class="model">
+        <div class="model-tag f">РњРѕРґРµР»СЊ 1 В· Р¤С–РєСЃРѕРІР°РЅР° РїС–РґРїРёСЃРєР°</div>
+        <div class="model-title">Р¤С–РєСЃРѕРІР°РЅРёР№ С‰РѕРјС–СЃСЏС‡РЅРёР№ РїР»Р°С‚С–Р¶</div>
+        <div class="model-body">70 000вЂ“100 000 РіСЂРЅ РЅР° РјС–СЃСЏС†СЊ. РќРµР·Р°Р»РµР¶РЅРѕ РІС–Рґ РєС–Р»СЊРєРѕСЃС‚С– Р·РІРµСЂРЅРµРЅСЊ РґРѕ РєРѕРјР°РЅРґРё.</div>
+        <div class="model-note">РџС–РґС…РѕРґРёС‚СЊ РґР»СЏ РєРѕРјРїР°РЅС–Р№ Р· СЂРµРіСѓР»СЏСЂРЅРёРј РїРѕСЂС‚С„РµР»РµРј.</div>
+      </div>
+      <div class="model featured">
+        <div class="model-tag p">РњРѕРґРµР»СЊ 2 В· Р¤С–РєСЃ + Penalty</div>
+        <div class="model-title">РџСЂРѕРїСѓСЃС‚РёР»Рё вЂ” РїРѕРІРµСЂС‚Р°С”РјРѕ РѕРїР»Р°С‚Сѓ</div>
+        <div class="model-body">РџСЂРѕРїСѓС‰РµРЅРѕ РєР°СЃРѕРІРёР№ СЂРѕР·СЂРёРІ Р°Р±Рѕ РїР°РґС–РЅРЅСЏ РјР°СЂР¶С– &gt;10% Р±РµР· РµСЃРєР°Р»Р°С†С–С— вЂ” РїРѕРІРµСЂС‚Р°С”РјРѕ РјС–СЃСЏС‡РЅСѓ РѕРїР»Р°С‚Сѓ РїРѕРІРЅС–СЃС‚СЋ. РЈРјРѕРІРё РІ РґРѕРіРѕРІРѕСЂС– РґРѕ СЃС‚Р°СЂС‚Сѓ.</div>
+        <div class="model-note">Р—РЅС–РјР°С” Р·Р°РїРµСЂРµС‡РµРЅРЅСЏ В«С‡Рё РіР°СЂР°РЅС‚СѓС”С‚Рµ СЂРµР·СѓР»СЊС‚Р°С‚В».</div>
+      </div>
+      <div class="model">
+        <div class="model-tag s">РњРѕРґРµР»СЊ 3 В· Р¤С–РєСЃ + Success Fee</div>
+        <div class="model-title">Р‘Р°Р·РѕРІР° СЃС‚Р°РІРєР° РЅРёР¶С‡Р° + % РІС–Рґ Р·Р±РµСЂРµР¶РµРЅРѕС— РјР°СЂР¶С–</div>
+        <div class="model-body">Р”РѕРґР°С‚РєРѕРІРёР№ % РІС–Рґ Р·Р°РїРѕР±С–Р¶РµРЅРёС… РїРµСЂРµРІРёС‚СЂР°С‚ С– РјРѕРЅРµС‚РёР·РѕРІР°РЅРёС… Р·РјС–РЅ РўР—. Р’Р°С€ СЂРёР·РёРє РјС–РЅС–РјР°Р»СЊРЅРёР№ РЅР° СЃС‚Р°СЂС‚С–.</div>
+        <div class="model-note">РџС–РґС…РѕРґРёС‚СЊ РґРµ РїРѕС‚РѕС‡РЅС– РІС‚СЂР°С‚Рё РЅР°Р№РІРёС‰С–.</div>
+      </div>
+    </div>
+
+    <div class="anchor">
+      <div class="a-head">
+        <div class="a-head-c">РђР»СЊС‚РµСЂРЅР°С‚РёРІР°</div>
+        <div class="a-head-c">Р РµР°Р»СЊРЅР° РІР°СЂС‚С–СЃС‚СЊ / РѕР±РјРµР¶РµРЅРЅСЏ</div>
+      </div>
+      <div class="a-row">
+        <div class="a-cell">COO РІ С€С‚Р°С‚С–</div>
+        <div class="a-cell">$3 000вЂ“6 000/РјС–СЃ + 3вЂ“6 РјС–СЃ. РїРѕС€СѓРєСѓ. 1 COO Р±РµР· РєРѕРјР°РЅРґРё.</div>
+      </div>
+      <div class="a-row">
+        <div class="a-cell">Р—РѕРІРЅС–С€РЅС–Р№ Р°СѓРґРёС‚РѕСЂ</div>
+        <div class="a-cell">Р”Р°С” Р·РІС–С‚. РќРµ Р·Р°РєСЂРёРІР°С” РєРѕРЅС‚СѓСЂ. РќРµ РІС–РґРїРѕРІС–РґР°С” Р·Р° СЂРµР·СѓР»СЊС‚Р°С‚.</div>
+      </div>
+      <div class="a-row">
+        <div class="a-cell">РћРґРЅР° РЅРµР·Р°РєСЂРёС‚Р° Р·РјС–РЅР° РўР— (20% РѕР±СЃСЏРіСѓ)</div>
+        <div class="a-cell">$3 000вЂ“15 000 РІС‚СЂР°С‡РµРЅРѕС— РјР°СЂР¶С– вЂ” СЂР°Р·РѕРІРѕ</div>
+      </div>
+      <div class="a-row">
+        <div class="a-cell">РћРґРёРЅ Р·Р±РёС‚РєРѕРІРёР№ РїСЂРѕРµРєС‚ (РјР°СЂР¶Р° 8% Р·Р°РјС–СЃС‚СЊ 25%)</div>
+        <div class="a-cell">$5 000вЂ“25 000 РІС‚СЂР°С‡РµРЅРѕС— РјР°СЂР¶С– вЂ” СЂР°Р·РѕРІРѕ</div>
+      </div>
+      <div class="a-row hi">
+        <div class="a-cell">Financial Delivery Office В· РєРѕРјР°РЅРґР° 4 РѕСЃРѕР±Рё</div>
+        <div class="a-cell">70 000вЂ“100 000 РіСЂРЅ/РјС–СЃ В· СЃС‚Р°СЂС‚ Р·Р° С‚РёР¶РґРµРЅСЊ В· Penalty РІРєР»СЋС‡РµРЅРѕ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ROLLOUT -->
+<section class="section tinted">
+  <div class="wide">
+    <div class="lbl">Р¤РѕСЂРјР°С‚ СЂРѕР±РѕС‚Рё</div>
+    <h2 class="sec-h">Р’С–Рґ РґС–Р°РіРЅРѕСЃС‚РёРєРё РґРѕ <em>РїРѕРІРЅРѕРіРѕ Р·Р°РјРєРЅСѓС‚РѕРіРѕ РєРѕРЅС‚СѓСЂСѓ</em> вЂ” С‚СЂРё РµС‚Р°РїРё.</h2>
+    <p class="sec-sub">РњРё РЅРµ Р±РµСЂРµРјРѕ РІСЃС–С…. Р”С–Р°РіРЅРѕСЃС‚РёРєР° вЂ” РІР·Р°С”РјРЅР° РїРµСЂРµРІС–СЂРєР°: РІРё РґРёРІРёС‚РµСЃСЊ СЏРє РјРё РјРёСЃР»РёРјРѕ, РјРё РґРёРІРёС‚РµСЃСЊ С‡Рё С” Р±Р°Р·Р° РґР»СЏ СЂРѕР±РѕС‚Рё.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-n">0</div>
+        <div class="stage-tag">Р”С–Р°РіРЅРѕСЃС‚РёРєР° В· Р‘РµР·РєРѕС€С‚РѕРІРЅРѕ</div>
+        <div class="stage-title">РђРЅР°Р»С–Р· РѕРґРЅРѕРіРѕ РїСЂРѕРµРєС‚Сѓ. Р”Рµ РІС‚СЂР°С‡Р°С”С‚СЊСЃСЏ РјР°СЂР¶Р°, РґРµ СЂРѕР·СЂРёРІ Сѓ РєРѕРЅС‚СѓСЂС–.</div>
+        <div class="stage-body">Р РµР°Р»СЊРЅР° РјР°СЂР¶Р° С‚РѕРї-РїСЂРѕРµРєС‚Сѓ РїСЂСЏРјРѕ Р·Р°СЂР°Р·. РџРµСЂРµР°РІР°РЅСЃРѕРІР°РЅС– С‡Рё РЅРµРґРѕС„С–РЅР°РЅСЃРѕРІР°РЅС–. РЎРєС–Р»СЊРєРё Р·РјС–РЅ РўР— РЅРµ РјРѕРЅРµС‚РёР·РѕРІР°РЅРѕ. РўРѕС‡РЅР° СЃСѓРјР° С‰РѕР± Р·Р°РІРµСЂС€РёС‚Рё РїРѕСЂС‚С„РµР»СЊ.</div>
+        <div class="stage-ok">60 С…РІРёР»РёРЅ В· Р±РµР· Р·РѕР±РѕРІ'СЏР·Р°РЅСЊ В· РєРѕСЂРёСЃРЅРёР№ РІРёСЃРЅРѕРІРѕРє Сѓ Р±СѓРґСЊ-СЏРєРѕРјСѓ СЂР°Р·С–</div>
+      </div>
+      <div class="stage">
+        <div class="stage-n">1</div>
+        <div class="stage-tag">РџРѕР±СѓРґРѕРІР° РєРѕРЅС‚СѓСЂСѓ В· РўРёР¶РЅС– 1вЂ“2</div>
+        <div class="stage-title">Р РѕР·РіРѕСЂС‚Р°РЅРЅСЏ FDO-СЂРµРіР»Р°РјРµРЅС‚Сѓ С– С–РЅС„СЂР°СЃС‚СЂСѓРєС‚СѓСЂРё</div>
+        <div class="stage-body">NDA С– РґРѕРіРѕРІС–СЂ. WBS РїС–Рґ РїСЂРѕРµРєС‚Рё РєР»С–С”РЅС‚Р°. РўСЂРµРєС–РЅРі, СЂРµС”СЃС‚СЂРё, С‡РµРє-Р»РёСЃС‚Рё. Telegram-Р±РѕС‚. Fireflies С– Asana С–РЅС‚РµРіСЂР°С†С–СЏ. Р—Р°РїСѓСЃРє С†РёРєР»Сѓ.</div>
+        <div class="stage-ok">РџРµСЂС€С– РґР°РЅС– С– РїРµСЂС€РёР№ Alert вЂ” С‚РёР¶РґРµРЅСЊ 1</div>
+      </div>
+      <div class="stage">
+        <div class="stage-n">2</div>
+        <div class="stage-tag">РџРѕРІРЅРёР№ СЂРёС‚Рј В· Р— С‚РёР¶РЅСЏ 3</div>
+        <div class="stage-title">Р—Р°РјРєРЅСѓС‚РёР№ С†РёРєР» РІ РїРѕРІРЅСѓ СЃРёР»Сѓ</div>
+        <div class="stage-body">РџРµСЂС€РёР№ Financial Delivery Review. РџРµСЂС€РёР№ FDO Report. РџРµСЂС€Р° РµСЃРєР°Р»Р°С†С–СЏ РїРѕ Р·РјС–РЅС– РўР— вЂ” Р·Р°РјРѕРІРЅРёРє РїС–РґРїРёСЃСѓС” РґРѕРї. СѓРіРѕРґСѓ Р±РµР· РєРѕРЅС„Р»С–РєС‚Сѓ Р· РІР»Р°СЃРЅРёРєРѕРј. РЎРёСЃС‚РµРјР° Р°РІС‚РѕРЅРѕРјРЅР°.</div>
+        <div class="stage-ok">РЎРёСЃС‚РµРјР° Р°РІС‚РѕРЅРѕРјРЅР° вЂ” С‚РёР¶РґРµРЅСЊ 4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wide">
+    <div class="cta-grid">
+      <div>
+        <h2 class="cta-h">РџРѕС‡РЅС–С‚СЊ Р· <em>РґС–Р°РіРЅРѕСЃС‚РёРєРё.</em><br>Р‘РµР·РєРѕС€С‚РѕРІРЅРѕ.</h2>
+        <p class="cta-body">РњРё РїСЂРѕРІРµРґРµРјРѕ Р°РЅР°Р»С–Р· РѕРґРЅРѕРіРѕ РІР°С€РѕРіРѕ РїСЂРѕРµРєС‚Сѓ С– РїРѕРєР°Р¶РµРјРѕ СЂРµР°Р»СЊРЅСѓ РєР°СЂС‚РёРЅСѓ: РґРµ СЂРѕР·СЂРёРІ Сѓ С„С–РЅР°РЅСЃРѕРІРѕРјСѓ РєРѕРЅС‚СѓСЂС–, РґРµ РІС‚СЂР°С‡Р°С”С‚СЊСЃСЏ РјР°СЂР¶Р° Р·СЃРµСЂРµРґРёРЅРё С– Р·Р·РѕРІРЅС–, СЏРєР° С‚РѕС‡РЅР° СЃСѓРјР° РЅРµРѕР±С…С–РґРЅР° РґР»СЏ Р·Р°РІРµСЂС€РµРЅРЅСЏ РїРѕС‚РѕС‡РЅРѕРіРѕ РїРѕСЂС‚С„РµР»СЏ.</p>
+        <p class="cta-body">РњРё РЅРµ Р±РµСЂРµРјРѕ РІСЃС–С…. РџС–СЃР»СЏ РґС–Р°РіРЅРѕСЃС‚РёРєРё вЂ” Р°Р±Рѕ РјРё Р±Р°С‡РёРјРѕ Р±Р°Р·Сѓ РґР»СЏ СЂРѕР±РѕС‚Рё, Р°Р±Рѕ С‡РµСЃРЅРѕ РїРѕСЏСЃРЅСЋС”РјРѕ С‰Рѕ С‚СЂРµР±Р° Р·РјС–РЅРёС‚Рё СЃРїРѕС‡Р°С‚РєСѓ. Р РёР·РёРє РЅСѓР»СЊРѕРІРёР№.</p>
+        <p class="cta-body" style="font-size:.75rem;color:var(--muted)">РђРЅРґСЂС–Р№ РњР°С‚РІС”С”РІ В· Р—Р°СЃРЅРѕРІРЅРёРє FDO В· РљРёС—РІ / Р›СЊРІС–РІ<br>Р”РѕСЃРІС–Рґ: Р°СЂС…С–С‚РµРєС‚СѓСЂР°, Р±СѓРґС–РІРЅРёС†С‚РІРѕ, interior design В· Р РёРЅРєРё: РЈРєСЂР°С—РЅР°, РЎРЁРђ</p>
+      </div>
+      <div>
+        <div class="stress-box">
+          <div class="sb-head">
+            <div class="sb-head-lbl">Р‘РµР·РєРѕС€С‚РѕРІРЅР° РґС–Р°РіРЅРѕСЃС‚РёРєР° В· 60 С…РІРёР»РёРЅ</div>
+            <div class="sb-head-title">Р©Рѕ РІРё РѕС‚СЂРёРјР°С”С‚Рµ вЂ” РЅРµР·Р°Р»РµР¶РЅРѕ РІС–Рґ СЂС–С€РµРЅРЅСЏ</div>
+          </div>
+          <div class="sb-body">
+            <p class="sb-intro">РњРё РґРёРІРёРјРѕСЃСЊ РЅР° РІР°С€С– РїСЂРѕРµРєС‚Рё, Р° РЅРµ РЅР° РїСЂРµР·РµРЅС‚Р°С†С–СЋ.</p>
+            <ul class="sb-list">
+              <li>РџРµСЂРµР°РІР°РЅСЃРѕРІР°РЅС– РІРё С‡Рё РЅРµРґРѕС„С–РЅР°РЅСЃРѕРІР°РЅС– вЂ” РїРѕ РєРѕР¶РЅРѕРјСѓ Р°РєС‚РёРІРЅРѕРјСѓ РїСЂРѕРµРєС‚Сѓ</li>
+              <li>Р РµР°Р»СЊРЅР° РјР°СЂР¶Р° РІР°С€РѕРіРѕ С‚РѕРї-РїСЂРѕРµРєС‚Сѓ РїСЂСЏРјРѕ Р·Р°СЂР°Р·</li>
+              <li>Р”Рµ СЂРѕР·СЂРёРІ Сѓ С„С–РЅР°РЅСЃРѕРІРѕРјСѓ РєРѕРЅС‚СѓСЂС– С– СЃРєС–Р»СЊРєРё РІС–РЅ РєРѕС€С‚СѓС”</li>
+              <li>РЎРєС–Р»СЊРєРё Р·РјС–РЅ РўР— РЅРµ Р±СѓР»Рё РјРѕРЅРµС‚РёР·РѕРІР°РЅС– С– СЏРєР° С—С… РІР°СЂС‚С–СЃС‚СЊ</li>
+              <li>РЇРєСѓ РјРѕРґРµР»СЊ РѕРїР»Р°С‚Рё FDO СЏ СЂРµРєРѕРјРµРЅРґСѓСЋ РґР»СЏ РІР°С€РѕРіРѕ РІРёРїР°РґРєСѓ</li>
+            </ul>
+            <a href="mailto:matveev.ceo.dp@gmail.com?subject=Р”С–Р°РіРЅРѕСЃС‚РёРєР° вЂ” Financial Delivery Office" class="btn">
+              Р—Р°РїРёСЃР°С‚РёСЃСЊ РЅР° РґС–Р°РіРЅРѕСЃС‚РёРєСѓ в†’
+            </a>
+          </div>
+          <div class="sb-contacts">
+            <a href="tel:+380665595458">+38 066 559 5458 В· Telegram / Viber / WhatsApp</a>
+            <a href="mailto:matveev.ceo.dp@gmail.com">matveev.ceo.dp@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="fi">
+    <div>
+      <div class="fn-brand">Financial Delivery Office</div>
+      <div class="fn-sub">РђРЅРґСЂС–Р№ РњР°С‚РІС”С”РІ В· Р—Р°СЃРЅРѕРІРЅРёРє С– РєРµСЂС–РІРЅРёР№ РїР°СЂС‚РЅРµСЂ</div>
+    </div>
+    <div class="fl">
+      <a href="tel:+380665595458">+38 066 559 5458</a>
+      <a href="mailto:matveev.ceo.dp@gmail.com">matveev.ceo.dp@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
